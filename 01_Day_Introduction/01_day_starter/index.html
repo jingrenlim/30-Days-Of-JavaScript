@@ -1,19 +1,35 @@
+<! There are 4 ways to add JS to a webpage. 
+1) Inline script
+2) Internal script
+3) External script. (Which is preferred to be put in the body.)
+4) Multiple external scripts which is just 3) but you have more than one src tags. They are executed in order of how you place the src tags. >
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>30DaysOfJavaScript</title>
+    <! 2) This shows second method which is internal script tag 
+	If you look at the console, it is executed in order. >
+    <script>
+      console.log("This", "is an internal script!");
+    </script>
+  </head>
 
-<head>
-	<title>30DaysOfJavaScript</title>
-</head>
-
-<body>
-	<h1>30DaysOfJavaScript:03 Day</h1>
-	<h2>Introduction</h2>
-	<button onclick="alert('Welcome to 30DaysOfJavaScript!');">Click Me</button>
-	<script src="./helloworld.js"></script>
-	<script src="./introduction.js"></script>
-	<script src="./variable.js"></script>
-	<script src="./main.js"></script>
-
-</body>
-
+  <body>
+    <h1>30DaysOfJavaScript:03 Day</h1>
+    <h2>Introduction</h2>
+    <! 1) The bottom shows inline script where you can write JS between the button tags 
+	>
+    <! 2) You can put internal script in head or body but more commonly it will be in the body tags. >
+    <script>
+      console.log("This", "is an internal script! in the body.");
+    </script>
+    <button onclick="alert('Welcome to 30DaysOfJavaScript!');">Click Me</button>
+    <! 3) External script, use the src tag and point it to the js file in the same directory >
+    <script src="./helloworld.js"></script>
+    <script src="./introduction.js"></script>
+    <script type="module" src="./variable.js"></script>
+    <!if it is a module, you have to declare as module.>
+    <! only modules can use import and export >
+    <script type="module" src="./main.js"></script>
+  </body>
 </html>
