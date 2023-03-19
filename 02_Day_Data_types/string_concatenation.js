@@ -36,3 +36,33 @@ Now, we are in 2020. I am enjoying preparing the 30DaysOfJavaScript challenge an
 console.log(paragraph);
 
 // Escape Sequences in Strings
+/*
+\n: new line
+\t: tab, means 4 spaces
+\\: backslash
+\': single quote
+\": double quotes
+*/
+console.log(
+  "I hope everyone is enjoying the 30 Days Of JavaScript challenge.\nDo you ?"
+); // line break
+console.log("Days\tTopics\tExercises");
+console.log("Day 1\t3\t5");
+console.log("Day 2\t3\t5");
+console.log("Day 3\t3\t5");
+console.log("Day 4\t3\t5");
+console.log("This is a backslash  symbol (\\)"); // To write a backslash
+console.log('In every programming language it starts with "Hello, World!"');
+console.log("In every programming language it starts with 'Hello, World!'");
+console.log("The saying 'Seeing is Believing' isn't correct in 2020");
+
+// Template Literals (Template Strings)
+// To create a template strings, we use two back-ticks. Basically, f-strings in
+// python.
+let template_string = `String literal text ${country}`;
+console.log(`The sum of 2 and 3 is 5`); // statically writing the data
+let a = 2;
+let b = 3;
+console.log(`The sum of ${a} and ${b} is ${a + b}`);
+console.log(`${a} is greater than ${b}: ${a > b}`);
+// the expressions can do evaluates.
