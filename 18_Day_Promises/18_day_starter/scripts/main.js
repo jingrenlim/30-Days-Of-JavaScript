@@ -234,6 +234,7 @@ promiseTakingInput(3);
 // Using the fetch api with Promises, the function is literally called fetch.
 // its a global function and it resolves to a Response object. Which is why
 // you must treat the response object.
+/* Comment out as it makes the output too cluttered
 const url = "https://restcountries.com/v2/all";
 fetch(url)
   .then((response) => response.json()) // treat the response object
@@ -243,6 +244,7 @@ fetch(url)
     console.log(data);
   })
   .catch((error) => console.error(error)); // handling the error
+*/
 
 /* async and await */
 // An async function returns a Promise.
@@ -257,24 +259,35 @@ console.log(`Result of async functions: ${result}`); // it is a Promise object
 // like as if it was synchronous. So within the async function you can see the
 // value of square. But when you return it out, it will return as a
 // Promise { pending } state that you then have to treat it.
-async function getResultFromSquare() {
-  const value = await square(3);
-  console.log(`The value from within another async ${value}`);
-  return value;
+async function getResultFromSquare(number) {
+  try {
+    if (number < 5) {
+      const value = await square(number);
+      console.log(`The value from within another async ${value}`);
+      return value;
+    } else {
+      throw new Error("number is too large");
+    }
+  } catch (err) {
+    // you have to handle it into a catch if not you will get
+    // you will get UncaughtExceptionError.
+    return err;
+  }
 }
 
 // if we want to access the value outside of the async value instead of getting
 // a Promise in pending state. So resolve it with then and catch like a Promise.
-getResultFromSquare()
+getResultFromSquare(4)
   .then((data) => {
     console.log(data);
   })
   .catch((err) => console.error(err));
-const value = getResultFromSquare();
+const value = getResultFromSquare(7);
 console.log(value);
 
 // Comparison of promises and async await
 // This is the async version of the fetch api code
+/* Commented out as it makes the output too cluttered
 const fetchData = async () => {
   try {
     const response = await fetch(url);
@@ -287,3 +300,4 @@ const fetchData = async () => {
 };
 console.log("------ async and await version of fetchData");
 fetchData();
+*/
